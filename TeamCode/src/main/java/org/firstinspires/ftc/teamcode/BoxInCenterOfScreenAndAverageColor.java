@@ -83,7 +83,7 @@ public class BoxInCenterOfScreenAndAverageColor extends LinearOpMode {
             telemetry.addData("Alliance", allianceColour);
             telemetry.update();
 
-            sleep(100);
+            sleep(50);
         }
 
         camera.stopStreaming();
