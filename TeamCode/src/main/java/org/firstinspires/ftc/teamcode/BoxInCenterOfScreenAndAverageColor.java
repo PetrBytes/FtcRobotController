@@ -92,7 +92,7 @@ public class BoxInCenterOfScreenAndAverageColor extends LinearOpMode {
     // Inner pipeline class
     static class AverageColorPipeline extends OpenCvPipeline {
         private Scalar avgColor = new Scalar(0, 0, 0);
-        private Rect region;
+        private final Rect region;
 
         public AverageColorPipeline(Rect region) {
             this.region = region;
