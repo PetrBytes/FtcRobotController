@@ -12,15 +12,23 @@ import org.openftc.easyopencv.*;
 @TeleOp(name = "Box Average Color", group = "Testing")
 public class BoxInCenterOfScreenAndAverageColor extends LinearOpMode{
     // any variables
-    OpenCvCamera webcam;
+    OpenCvCamera camera;
     String allianceColour = "Blue";
     boolean cameraOpened = false;
-
-    Rect roi1 = new Rect(230, 390, 80, 80);
+    final int RESOLUTION_WIDTH = 640;
+    final int RESOLUTION_HEIGHT = 480;
+    Rect centerbox = new Rect(280, 200, 80, 80);
+    int[] zoneColourPercentage = new int[3];
+    Mat hsvImage = new Mat();
+    Mat mask = new Mat();
 
     @Override
     public void runOpMode() {
         // initialisation
+        int viewId = hardwareMap.appContext.getResources().getIdentifier(
+                "cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
+        WebcamName webcamName = hardwareMap.get(WebcamName.class, "Webcam 1");
+        camera = OpenCvCameraFactory.getInstance().createWebcam(webcamName, viewId);
 
         if (gamepad1.x) allianceColour = "Blue";
         if (gamepad1.b) allianceColour = "Red";
