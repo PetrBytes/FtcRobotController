@@ -18,7 +18,6 @@ public class BoxInCenterOfScreenAndAverageColor extends LinearOpMode{
 
     Rect roi1 = new Rect(230, 390, 80, 80);
 
-
     @Override
     public void runOpMode() {
         // initialisation
