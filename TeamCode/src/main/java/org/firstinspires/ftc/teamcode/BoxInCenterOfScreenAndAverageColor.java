@@ -18,7 +18,7 @@ public class BoxInCenterOfScreenAndAverageColor extends LinearOpMode {
     final int RESOLUTION_HEIGHT = 480;
     Rect centerbox = new Rect(280, 200, 80, 80); // detection zone
 
-    AverageColorPipeline pipeline;  // Declare pipeline variable
+    AverageColorPipeline pipeline;
 
     @Override
     public void runOpMode() {
@@ -89,8 +89,8 @@ public class BoxInCenterOfScreenAndAverageColor extends LinearOpMode {
         camera.stopStreaming();
     }
 
-    // 🧠 Inner pipeline class
-    class AverageColorPipeline extends OpenCvPipeline {
+    // Inner pipeline class
+    static class AverageColorPipeline extends OpenCvPipeline {
         private Scalar avgColor = new Scalar(0, 0, 0);
         private Rect region;
 
